@@ -12,6 +12,8 @@ import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import com.techelevator.JDBC.JDBCReservationDAO;
+
 public class JDBCReservationDAOTest extends DAOIntegrationTest{
 	private JDBCReservationDAO resDao;
 	private JdbcTemplate jdbcTemplate;

@@ -12,6 +12,10 @@ import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import com.techelevator.JDBC.JDBCReservationDAO;
+import com.techelevator.model.JDBCSiteDAO;
+import com.techelevator.pojo.Site;
+
 public class JDBCSiteDAOTest extends DAOIntegrationTest {
 	private JDBCSiteDAO dao;
 	private JDBCReservationDAO resDao;

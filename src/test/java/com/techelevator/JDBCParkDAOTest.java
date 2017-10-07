@@ -9,6 +9,9 @@ import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import com.techelevator.JDBC.JDBCParkDAO;
+import com.techelevator.pojo.Park;
+
 
 public class JDBCParkDAOTest extends DAOIntegrationTest{
 	private JDBCParkDAO dao;

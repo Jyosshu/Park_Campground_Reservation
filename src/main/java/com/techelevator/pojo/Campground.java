@@ -1,6 +1,7 @@
-package com.techelevator;
+package com.techelevator.pojo;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Campground {
 	private int campgroundId;
@@ -17,7 +18,7 @@ public class Campground {
 		this.name = name;
 		this.openFromMm = openFromMm;
 		this.openToMm = openToMm;
-		this.dailyFee = dailyFee;
+		this.dailyFee = dailyFee.setScale(2, RoundingMode.HALF_UP);
 	}
 
 	public Campground() {
@@ -68,7 +69,7 @@ public class Campground {
 	}
 
 	public void setDailyFee(BigDecimal dailyFee) {
-		this.dailyFee = dailyFee;
+		this.dailyFee= dailyFee;
 	}
 	
 	

@@ -1,6 +1,11 @@
-package com.techelevator;
+package com.techelevator.pojo;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.techelevator.exceptions.BadDateException;
 
 public class Reservation {
 	private int reservation_id;
@@ -9,13 +14,14 @@ public class Reservation {
 	private Date fromDate;
 	private Date toDate;
 	private Date createDate;
+	private DateFormat sdf=new SimpleDateFormat("MM-dd-yyyy");
 	
 	public Reservation(){
 		
 	}
 	
-	public Reservation(int reservation_id, int site_id, String name, Date fromDate, Date toDate, Date createDate) {
-		super();
+	public Reservation(int reservation_id, int site_id, String name, Date fromDate, Date toDate, Date createDate) throws BadDateException, ParseException {
+		
 		this.reservation_id = reservation_id;
 		this.site_id = site_id;
 		this.name = name;
@@ -71,4 +77,6 @@ public class Reservation {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+	
+	
 }

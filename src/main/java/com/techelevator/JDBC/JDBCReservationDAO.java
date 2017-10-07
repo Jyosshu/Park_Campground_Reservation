@@ -1,10 +1,12 @@
-package com.techelevator;
+package com.techelevator.JDBC;
 
 import java.util.Date;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.techelevator.model.ReservationDAO;
 
 public class JDBCReservationDAO implements ReservationDAO {
 	private JdbcTemplate jdbcTemplate;

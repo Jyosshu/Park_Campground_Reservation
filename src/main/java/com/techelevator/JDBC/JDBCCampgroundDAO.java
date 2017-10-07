@@ -1,5 +1,6 @@
-package com.techelevator;
+package com.techelevator.JDBC;
 
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,9 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import com.techelevator.model.CampgroundDAO;
+import com.techelevator.pojo.Campground;
 
 public class JDBCCampgroundDAO implements CampgroundDAO {
 	private JdbcTemplate jdbcTemplate;

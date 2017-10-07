@@ -1,7 +1,9 @@
-package com.techelevator;
+package com.techelevator.model;
 
 import java.util.Date;
 import java.util.List;
+
+import com.techelevator.pojo.Site;
 
 public interface SiteDAO {
 

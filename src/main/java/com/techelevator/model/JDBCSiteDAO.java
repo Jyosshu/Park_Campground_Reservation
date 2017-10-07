@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +8,10 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import com.techelevator.JDBC.JDBCCampgroundDAO;
+import com.techelevator.pojo.Campground;
+import com.techelevator.pojo.Site;
 
 public class JDBCSiteDAO implements SiteDAO {
 
@@ -34,19 +38,19 @@ public class JDBCSiteDAO implements SiteDAO {
 		int beginDateMonth=Integer.parseInt(String.valueOf(beginDate.getMonth()))+1;
 		int endDateMonth=Integer.parseInt(String.valueOf(endDate.getMonth()))+1;
 		
-		System.out.println(fromMm + " " + toMm + " " + beginDateMonth + " " + endDateMonth);
-		
 		if(beginDateMonth>=fromMm && endDateMonth<=toMm){
-			String sqlSelectSite = "SELECT * FROM site WHERE site_id NOT IN "  
+			String sqlSelectSite = "SELECT s.* FROM site s JOIN campground c ON s.campground_id=c.campground_id"
+					+ " WHERE s.campground_id=? AND "
+					+ "s.site_id NOT IN "  
 					+ "(SELECT DISTINCT site_id FROM reservation "
 					+ "WHERE (? > from_date AND ?<=to_date) "
 					+ "OR (? < to_date 	AND ?>=from_date) "
 					+ "OR (? <= from_date AND ? >= to_date) "
 					+ "OR (?>from_date AND ?<to_date))"
-					+ "ORDER BY site_number";
+					+ "ORDER BY site_number LIMIT 5";
 			
 	
-			SqlRowSet siteRowSet =jdbcTemplate.queryForRowSet(sqlSelectSite, endDate, endDate, beginDate, beginDate, beginDate, endDate, beginDate, endDate);
+			SqlRowSet siteRowSet =jdbcTemplate.queryForRowSet(sqlSelectSite, campgroundId, endDate, endDate, beginDate, beginDate, beginDate, endDate, beginDate, endDate);
 			
 			while (siteRowSet.next()) {
 				newSiteList.add(mapRowToSite(siteRowSet));

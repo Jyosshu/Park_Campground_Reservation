@@ -10,6 +10,9 @@ import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import com.techelevator.JDBC.JDBCCampgroundDAO;
+import com.techelevator.pojo.Campground;
+
 public class JDBCCampgroundDAOTEST extends DAOIntegrationTest {
 	private JDBCCampgroundDAO dao;
 	private JdbcTemplate jdbcTemplate;
